@@ -36,9 +36,11 @@ function main(input){
     return printCharacterCounts(removeSpaces(changetolowercase(input)));
 }
 const input = "dani Maulana";
+console.log("text yang anda masukkan adalah: "+ input);
 const output =  main(input);
-console.log(output);
+console.log("Hasil setelah di kelola: "+ output);
 
-const input2 = "SYahdan";
+const input2 = "Mas Syahdan Filsafan";
+console.log("text yang anda masukkan adalah: "+ input2);
 const output2 =  main(input2);
-console.log(output2);
+console.log("Hasil setelah di kelola: "+ output2);
