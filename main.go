@@ -5,10 +5,11 @@ import (
 	"strings"
 )
 
-func countCharacters(inputStr string) map[rune]int {
-	counts := make(map[rune]int)
+func countCharacters(inputStr string) map[string]int {
+	counts := make(map[string]int)
 
-	for _, char := range inputStr {
+	for i := 0; i < len(inputStr); i++ {
+		char := string(inputStr[i])
 		counts[char] = counts[char] + 1
 	}
 
@@ -21,9 +22,9 @@ func printCharacterCounts(inputStr string) string {
 
 	for char, count := range counts {
 		if count == 1 {
-			outputStr.WriteRune(char)
+			outputStr.WriteString(char)
 		} else {
-			outputStr.WriteString(fmt.Sprintf("%d%c", count, char))
+			outputStr.WriteString(fmt.Sprintf("%d%s", count, char))
 		}
 	}
 
@@ -34,16 +35,18 @@ func removeSpaces(inputStr string) string {
 	return strings.ReplaceAll(inputStr, " ", "")
 }
 
-func changeToLowercase(inputStr string) string {
-	return strings.ToLower(inputStr)
+func changetolowercase(input string) string {
+	return strings.ToLower(input)
 }
 
 func main() {
 	input := "dani Maulana"
-	output := printCharacterCounts(removeSpaces(changeToLowercase(input)))
-	fmt.Println(output)
+	fmt.Printf("text yang anda masukkan adalah: %s\n", input)
+	output := printCharacterCounts(removeSpaces(changetolowercase(input)))
+	fmt.Printf("Hasil setelah di kelola: %s\n", output)
 
-	input2 := "SYahdan"
-	output2 := printCharacterCounts(removeSpaces(changeToLowercase(input2)))
-	fmt.Println(output2)
+	input2 := "Mas Syahdan Filsafan"
+	fmt.Printf("text yang anda masukkan adalah: %s\n", input2)
+	output2 := printCharacterCounts(removeSpaces(changetolowercase(input2)))
+	fmt.Printf("Hasil setelah di kelola: %s\n", output2)
 }
